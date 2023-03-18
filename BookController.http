@@ -1,4 +1,4 @@
-GET http://localhost:8080/book/10
+GET http://localhost:8080/book/1
 
 ###
 
@@ -11,3 +11,35 @@ DELETE http://localhost:8080/book/2
 ###
 
 PUT http://localhost:8080/book/1?title=tytuł_nowy&rating=3&description=opis
+
+###
+
+GET http://localhost:8080/author/1
+
+###
+
+POST http://localhost:8080/author?firstName=imię&lastName=nazwisko
+
+###
+
+DELETE http://localhost:8080/author/2
+
+###
+
+PUT http://localhost:8080/author/1?firstName=nowe imię&lastName=nowe nazwisko
+
+###
+
+GET http://localhost:8080/publisher/1
+
+###
+
+POST http://localhost:8080/publisher?name=nazwa
+
+###
+
+DELETE http://localhost:8080/publisher/2
+
+###
+
+PUT http://localhost:8080/publisher/1?name=nowa nazwa

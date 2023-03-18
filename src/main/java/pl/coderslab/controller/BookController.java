@@ -49,5 +49,11 @@ public class BookController {
         return Objects.nonNull(book) ? book.toString() : "Nie znaleziono książki o podanym id " + id;
     }
 
+    //delete book by id
+    @DeleteMapping(path="book/{id}")
+    void deleteById(@PathVariable Long id){
+        bookService.deleteById(id);
+    }
+
 
 }
