@@ -21,6 +21,6 @@ public class Book {
     private int rating;
     private String description;
 
-//    @ManyToOne
-//    private Publisher publisher;
+    @ManyToOne
+    private Publisher publisher;
 }
