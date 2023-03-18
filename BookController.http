@@ -1,9 +1,13 @@
-GET http://localhost:8080/book/2
+GET http://localhost:8080/book/10
 
 ###
 
-POST http://localhost:8080/book/1?title=sdsd?description=sdf
+POST http://localhost:8080/book?title=tytuł1&rating=3&description=opis
 
 ###
 
 DELETE http://localhost:8080/book/2
+
+###
+
+PUT http://localhost:8080/book/1?title=tytuł_nowy&rating=3&description=opis

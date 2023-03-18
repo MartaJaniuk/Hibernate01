@@ -1,9 +1,16 @@
 package pl.coderslab.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "books")
+@Getter
+@Setter
+@ToString
 public class Book {
 
     @Id
@@ -13,4 +20,7 @@ public class Book {
     private String title;
     private int rating;
     private String description;
+
+//    @ManyToOne
+//    private Publisher publisher;
 }
