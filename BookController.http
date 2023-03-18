@@ -1,0 +1,9 @@
+GET http://localhost:8080/book/2
+
+###
+
+POST http://localhost:8080/book/1?title=sdsd?description=sdf
+
+###
+
+DELETE http://localhost:8080/book/2
