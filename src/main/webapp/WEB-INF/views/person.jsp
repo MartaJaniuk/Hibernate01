@@ -18,7 +18,6 @@
     <form:input path="password" />
     <form:input type="email" path="email" />
     <input type="submit" value="Wyślij">
-
 </form:form>
 
 
