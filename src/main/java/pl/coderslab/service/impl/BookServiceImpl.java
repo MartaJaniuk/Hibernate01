@@ -47,6 +47,8 @@ public class BookServiceImpl implements BookService {
         bookEntity.setDescription(book.getDescription());
         bookEntity.setRating(book.getRating());
 
+
+
         bookDao.save(bookEntity);
     }
 

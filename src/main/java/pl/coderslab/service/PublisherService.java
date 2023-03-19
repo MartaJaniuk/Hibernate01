@@ -15,5 +15,7 @@ public interface PublisherService {
 
     public List<Publisher> findAll();
 
+    public List<pl.coderslab.model.Publisher> findAllPublisherModel();
+
     public void deleteById(Long id);
 }
