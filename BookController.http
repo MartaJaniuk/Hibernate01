@@ -2,6 +2,10 @@ GET http://localhost:8080/book/1
 
 ###
 
+GET http://localhost:8080/books
+
+###
+
 POST http://localhost:8080/book?title=tytuł1&rating=3&description=opis&publisherName=wydawca
 
 ###

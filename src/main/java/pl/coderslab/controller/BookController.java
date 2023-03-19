@@ -6,6 +6,7 @@ import pl.coderslab.entity.Book;
 import pl.coderslab.entity.Publisher;
 import pl.coderslab.service.BookService;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -56,6 +57,14 @@ public class BookController {
         final Book book = bookService.findById(id);
         return Objects.nonNull(book) ? book.toString() : "Nie znaleziono książki o podanym id " + id;
     }
+
+    //find all
+    @GetMapping(path="/books", produces = "text/plain;charset=utf-8")
+    String findAll(){
+        final List<Book> books= bookService.findAll();
+        return books.toString();
+    }
+
 
     //delete book by id
     @DeleteMapping(path="book/{id}")
