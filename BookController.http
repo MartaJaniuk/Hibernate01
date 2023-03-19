@@ -2,7 +2,7 @@ GET http://localhost:8080/book/1
 
 ###
 
-POST http://localhost:8080/book?title=tytuł1&rating=3&description=opis
+POST http://localhost:8080/book?title=tytuł1&rating=3&description=opis&publisherName=wydawca
 
 ###
 

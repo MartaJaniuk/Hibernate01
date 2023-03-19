@@ -3,7 +3,9 @@ package pl.coderslab.service.impl;
 import org.springframework.stereotype.Service;
 import pl.coderslab.dao.BookDao;
 import pl.coderslab.entity.Book;
+import pl.coderslab.entity.Publisher;
 import pl.coderslab.service.BookService;
+import pl.coderslab.service.PublisherService;
 
 import javax.transaction.Transactional;
 
@@ -12,13 +14,18 @@ import javax.transaction.Transactional;
 public class BookServiceImpl implements BookService {
 
     private final BookDao bookDao;
+    private final PublisherService publisherService;
 
-    public BookServiceImpl(BookDao bookDao) {
+    public BookServiceImpl(BookDao bookDao, PublisherService publisherService) {
         this.bookDao = bookDao;
+        this.publisherService = publisherService;
     }
 
     @Override
     public void save(Book book) {
+        final Publisher publisher = book.getPublisher();
+        publisherService.save(publisher);
+
         bookDao.save(book);
     }
 
