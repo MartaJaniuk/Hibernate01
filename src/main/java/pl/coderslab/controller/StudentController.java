@@ -19,13 +19,24 @@ public class StudentController {
         return "student";
     }
 
+    @ModelAttribute("countries")
+    public List<String> countries() {
+        return Arrays.asList("Poland", "Germany", "France", "Russia", "Denmark");
+    }
+
+    @ModelAttribute("genders")
+    public List<String> genders() {
+        return Arrays.asList("K", "M");
+    }
+
+    @ModelAttribute("programmingSkills")
+    public List<String> programmingSkills() {
+        return Arrays.asList("Java", "Hibernate", "MySQL");
+    }
+
     @ModelAttribute("hobbies")
     public List<String> hobbies() {
-        List<String> hobbies = new ArrayList<>();
-        hobbies.add("futball");
-        hobbies.add("dancing");
-        hobbies.add("singing");
-        return hobbies;
+        return Arrays.asList("Sport", "Gotowanie", "Podróże");
     }
 
 }

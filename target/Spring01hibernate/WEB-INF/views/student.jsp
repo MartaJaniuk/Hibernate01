@@ -14,15 +14,15 @@
 </head>
 <body>
 <form:form method="post" modelAttribute="student">
-    <form:input path="firstName"/>
-    <form:input path="lastName" />
-    <form:radiobutton path="gender"/>
-    <form:select path="country"/>
-    <form:input path="notes"/>
-    <form:checkbox path="mailingList"/>
-    <form:select path="programmingSkills" multiple="true"/>
-    <form:checkboxes path="hobbies" items="${hobbies}"/>
-    <input type="submit" value="Wyślij">
+    Imię:<form:input path="firstName" /><br>
+    Nazwisko:<form:input path="lastName" /><br>
+    Płeć: <form:radiobuttons items="${genders}" path="gender" /><br>
+    Kraj:<form:select path="country" items="${countries}" /><br>
+    Notatki:<form:textarea path="notes" /><br>
+    Lista mailingowa:<form:checkbox path="mailingList"/><br>
+    Umiejętności:<form:select path="programmingSkills" items="${programmingSkills}" multiple="true"/><br>
+    Hobby: <form:checkboxes items="${hobbies}" path="hobbies" /><br>
+    <input type="submit" value="Zapisz">
 </form:form>
 </body>
 </html>
