@@ -9,6 +9,8 @@ public interface BookService {
 
     public void save(Book book);
 
+    public void save(pl.coderslab.model.Book book);
+
     public void update(Book book);
 
     public Book findById(Long id);

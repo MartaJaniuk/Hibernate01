@@ -41,6 +41,16 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public void save(pl.coderslab.model.Book book){
+        Book bookEntity = new Book();
+        bookEntity.setTitle(book.getTitle());
+        bookEntity.setDescription(book.getDescription());
+        bookEntity.setRating(book.getRating());
+
+        bookDao.save(bookEntity);
+    }
+
+    @Override
     public void update(Book book) {
         bookDao.update(book);
     }
