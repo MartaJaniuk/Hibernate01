@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="authors")
@@ -19,5 +21,7 @@ public class Author {
     private String firstName;
     private String lastName;
 
+//    @OneToMany(mappedBy = "publisher",fetch=FetchType.EAGER ) // że nie jest lazy, automatycznie wczytują sie książki
+//    private List<Book> books = new ArrayList<>();
 
 }
