@@ -2,6 +2,7 @@ package pl.coderslab.dao;
 
 import org.springframework.stereotype.Repository;
 import pl.coderslab.entity.Book;
+import pl.coderslab.entity.Publisher;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,6 +34,7 @@ public class BookDao {
         return query.getResultList();
     }
 
+    //zobaczyć, jak na GIT, zeby działało też dla lazy
     public List<Book> findByRating(int rating) {
         Query query =  entityManager.createQuery("select b from Book b where b.rating=:rat");
         query.setParameter("rat", rating);
@@ -42,6 +44,17 @@ public class BookDao {
     public void deleteById(Long id) {
         Book book = findById(id);
         entityManager.remove(entityManager.contains(book)? book: entityManager.merge(book));
+    }
+
+    public List<Book> findNotEmptyPublisher(){
+        Query query = entityManager.createQuery("select b from Book b where b.publisher is not null");
+        return query.getResultList();
+    }
+
+    public List<Book> findByPublisher(Publisher publisher){
+        Query query = entityManager.createQuery("select b from Book b where b.publisher=:publisher");
+        query.setParameter("publisher", publisher);
+        return query.getResultList();
     }
 
 }

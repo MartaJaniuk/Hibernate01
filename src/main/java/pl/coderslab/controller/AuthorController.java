@@ -6,6 +6,7 @@ import pl.coderslab.entity.Book;
 import pl.coderslab.service.AuthorService;
 import pl.coderslab.service.BookService;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -46,6 +47,13 @@ public class AuthorController {
     String findById(@PathVariable Long id){
         final Author author = authorService.findById(id);
         return Objects.nonNull(author) ? author.toString() : "Nie znaleziono autora o podanym id " + id;
+    }
+
+    //get all authors
+    @GetMapping(path="/authors", produces = "text/plain;charset=utf-8")
+    String findAll(){
+        final List<Author> authors = authorService.findAll();
+        return authors.toString();
     }
 
     //delete author by id

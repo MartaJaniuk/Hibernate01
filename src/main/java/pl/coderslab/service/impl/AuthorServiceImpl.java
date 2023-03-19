@@ -8,6 +8,7 @@ import pl.coderslab.entity.Book;
 import pl.coderslab.service.AuthorService;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -34,6 +35,10 @@ public class AuthorServiceImpl implements AuthorService {
         return authorDao.findById(id);
     }
 
+    @Override
+    public List<Author> findAll(){
+        return authorDao.findAll();
+    }
     @Override
     public void deleteById(Long id) {
         authorDao.deleteById(id);

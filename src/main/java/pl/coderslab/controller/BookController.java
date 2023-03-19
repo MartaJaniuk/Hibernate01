@@ -65,6 +65,28 @@ public class BookController {
         return books.toString();
     }
 
+    //find by rating
+    @GetMapping(path = "/book", produces = "text/plain;charset=utf-8")
+    String findByRating(@RequestParam int rating) {
+        final List<Book> books = bookService.findByRating(rating);
+        return books.toString();
+    }
+
+    //find not empty publisher
+    @GetMapping(path="book/publisher", produces = "text/plain;charset=utf-8")
+    String findNotEmptyPublisher(){
+        final List<Book> books = bookService.findNotEmptyPublisher();
+        return books.toString();
+    }
+
+    //find by publisher
+    @GetMapping(path="bookbypublisher", produces = "text/plain;charset=utf-8")
+    String findByPublisher(@RequestParam Long id){
+        Publisher publisher = new Publisher();
+        publisher.setId(id);
+        final List<Book> books = bookService.findByPublisher(publisher);
+        return books.toString();
+    }
 
     //delete book by id
     @DeleteMapping(path="book/{id}")

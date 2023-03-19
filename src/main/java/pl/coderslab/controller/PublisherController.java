@@ -6,6 +6,7 @@ import pl.coderslab.entity.Publisher;
 import pl.coderslab.service.AuthorService;
 import pl.coderslab.service.PublisherService;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -44,6 +45,13 @@ public class PublisherController {
     String findById(@PathVariable Long id){
         final Publisher publisher = publisherService.findById(id);
         return Objects.nonNull(publisher) ? publisher.toString() : "Nie znaleziono wydawcy o podanym id " + id;
+    }
+
+    //get all publishers
+    @GetMapping(path="/publishers", produces = "text/plain;charset=utf-8")
+    String findAll(){
+        final List<Publisher> publishers = publisherService.findAll();
+        return publishers.toString();
     }
 
     //delete publisher by id

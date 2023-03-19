@@ -56,6 +56,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
+    public List<Book> findByRating(int rating) {
+        return bookDao.findByRating(rating);
+    }
+
+    @Override
+    public List<Book> findNotEmptyPublisher(){
+        return bookDao.findNotEmptyPublisher();
+    }
+
+    @Override
+    public List<Book> findByPublisher(Publisher publisher){
+        return bookDao.findByPublisher(publisher);
+    }
+    @Override
     public void deleteById(Long id) {
         bookDao.deleteById(id);
     }

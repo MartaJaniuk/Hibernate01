@@ -6,7 +6,15 @@ GET http://localhost:8080/books
 
 ###
 
-POST http://localhost:8080/book?title=tytuł1&rating=3&description=opis&publisherName=wydawca
+GET http://localhost:8080/book/publisher
+
+###
+
+GET http://localhost:8080/book?rating=2
+
+###
+
+POST http://localhost:8080/book?title=tytuł&rating=2&description=opis&publisherName=wydawca
 
 ###
 
@@ -19,6 +27,10 @@ PUT http://localhost:8080/book/1?title=tytuł_nowy&rating=3&description=opis
 ###
 
 GET http://localhost:8080/author/1
+
+###
+
+GET http://localhost:8080/authors
 
 ###
 
@@ -35,6 +47,10 @@ PUT http://localhost:8080/author/1?firstName=nowe imię&lastName=nowe nazwisko
 ###
 
 GET http://localhost:8080/publisher/1
+
+###
+
+GET http://localhost:8080/publishers
 
 ###
 

@@ -8,6 +8,7 @@ import pl.coderslab.entity.Publisher;
 import pl.coderslab.service.PublisherService;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -34,6 +35,10 @@ public class PublisherServiceImpl implements PublisherService {
         return publisherDao.findById(id);
     }
 
+    @Override
+    public List<Publisher> findAll() {
+        return publisherDao.findAll();
+    }
     @Override
     public void deleteById(Long id) {
         publisherDao.deleteById(id);
