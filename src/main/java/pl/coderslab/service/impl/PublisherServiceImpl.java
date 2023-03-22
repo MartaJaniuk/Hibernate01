@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @Service
 @Transactional
 public class PublisherServiceImpl implements PublisherService {
@@ -45,14 +46,17 @@ public class PublisherServiceImpl implements PublisherService {
     public List<pl.coderslab.model.Publisher> findAllPublisherModel(){
 
         final List<Publisher> publishers = publisherDao.findAll();
-        publishers
-                .stream()
-                .map(publisherEntity -> {
-                    pl.coderslab.model.Publisher publisher= new pl.coderslab.model.Publisher();
-                    publisher.setId(publisherEntity.getId());
-                    publisher.setName(publisherEntity.getName());
-                } ).collect(Collectors.toList());
-        return publishers;
+//        publishers
+//                .stream()
+//                .map(publisherEntity -> {
+//                    pl.coderslab.model.Publisher publisher = new pl.coderslab.model.Publisher();
+//                    publisher.setId(publisherEntity.getId());
+//                    publisher.setName(publisherEntity.getName());
+//                })
+//                .collect(Collectors.toList());
+//
+//        return publishers;
+        return null;
     }
 
     @Override

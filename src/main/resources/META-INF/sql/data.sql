@@ -1,0 +1,1 @@
+insert into bookStore.authors (firstName, lastName) values ('Adam', 'Mickiewicz'),('Henryk','Sienikiewicz'), ('Maria','Konopnicka');

@@ -22,8 +22,8 @@ public class PersonDetails {
     private String street;
     private String city;
 
-    @OneToOne
-    @JoinColumn(name="persons_id")
-    private Person person;
+//    @OneToOne
+//    @JoinColumn(name="persons_id")
+//    private Person person;
 
 }

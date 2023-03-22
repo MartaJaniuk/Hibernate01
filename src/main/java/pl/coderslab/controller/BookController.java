@@ -32,8 +32,6 @@ public class BookController {
 
         book.setPublisher(publisher);
 
-
-
         bookService.save(book);
     }
 

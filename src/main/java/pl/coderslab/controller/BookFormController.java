@@ -33,8 +33,8 @@ public class BookFormController {
         return "book/success";
     }
 
-    @ModelAttribute("publishers")
-    List<Publisher> publishers(){
-        return publisherService.findAll();
-    }
+//    @ModelAttribute("publishers")
+//    List<Publisher> publishers(){
+//        return publisherService.findAll();
+//    }
 }

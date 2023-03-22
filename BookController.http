@@ -67,3 +67,7 @@ DELETE http://localhost:8080/publisher/2
 ###
 
 PUT http://localhost:8080/publisher/1?name=nowa nazwa
+
+###
+
+POST http://localhost:8080/person?login=nazwa&password=hasło&email=email

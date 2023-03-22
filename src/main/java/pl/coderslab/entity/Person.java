@@ -19,7 +19,8 @@ public class Person {
     private String password;
     private String email;
 
-    @OneToOne (mappedBy = "person")
+    @OneToOne
+    @JoinColumn(name = "person_id")
     private PersonDetails personDetails;
 
 }
