@@ -57,13 +57,13 @@ public class PersonController {
     }
 
     //show form
-    @GetMapping(path="/form")
+    @GetMapping(path="/person_form")
     String showForm(Model model){
         model.addAttribute("person", new Person());
         return "person";
     }
 
-    @PostMapping(path="/form")
+    @PostMapping(path="/person_form")
     String processAddForm(Person person) {
         personService.save(person);
         return "success";

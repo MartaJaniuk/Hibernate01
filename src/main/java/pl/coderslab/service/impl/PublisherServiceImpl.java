@@ -46,17 +46,16 @@ public class PublisherServiceImpl implements PublisherService {
     public List<pl.coderslab.model.Publisher> findAllPublisherModel(){
 
         final List<Publisher> publishers = publisherDao.findAll();
-//        publishers
-//                .stream()
-//                .map(publisherEntity -> {
-//                    pl.coderslab.model.Publisher publisher = new pl.coderslab.model.Publisher();
-//                    publisher.setId(publisherEntity.getId());
-//                    publisher.setName(publisherEntity.getName());
-//                })
-//                .collect(Collectors.toList());
-//
-//        return publishers;
-        return null;
+        return publishers
+                .stream()
+                .map(publisherEntity -> {
+                    pl.coderslab.model.Publisher publisher = new pl.coderslab.model.Publisher();
+                    publisher.setId(publisherEntity.getId());
+                    publisher.setName(publisherEntity.getName());
+                    return publisher;
+                })
+                .collect(Collectors.toList());
+
     }
 
     @Override
