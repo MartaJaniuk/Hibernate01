@@ -27,6 +27,8 @@ import javax.validation.Validator;
 @EnableJpaRepositories(basePackages = "pl.coderslab.repository")
 public class AppConfiguration implements WebMvcConfigurer {
 
+
+    //żeby korzystać z Hibernate
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean entityManagerFactoryBean
@@ -38,12 +40,15 @@ public class AppConfiguration implements WebMvcConfigurer {
         return entityManagerFactoryBean;
     }
 
+    //żeby korzystać z Hibernate
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         JpaTransactionManager jpaTransactionManager =
                 new JpaTransactionManager(entityManagerFactory);
         return jpaTransactionManager;
     }
+
+    //do widoków jsp
     @Bean
     InternalResourceViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
