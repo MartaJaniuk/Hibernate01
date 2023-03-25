@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "books")
 @Getter
 @Setter
-//
 @ToString(exclude="authors")
 public class Book {
 
