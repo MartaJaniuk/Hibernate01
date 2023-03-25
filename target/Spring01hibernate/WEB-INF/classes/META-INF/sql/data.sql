@@ -1,1 +1,2 @@
 insert into bookStore.authors (firstName, lastName) values ('Adam', 'Mickiewicz'),('Henryk','Sienikiewicz'), ('Maria','Konopnicka');
+insert into publishers(name) values ('Helion'), ('Atena'), ('PWN'), ('WKiŁ');

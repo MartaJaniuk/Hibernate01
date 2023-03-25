@@ -29,13 +29,13 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void save(Book book) {
-        final Publisher publisher = book.getPublisher();
-        publisherService.save(publisher);
-
-        List<Author> authors = new ArrayList<>();
-        authors.add(authorService.findById(1L));
-        authors.add(authorService.findById(2L));
-        book.setAuthors(authors);
+//        final Publisher publisher = book.getPublisher();
+//        publisherService.save(publisher);
+//
+//        List<Author> authors = new ArrayList<>();
+//        authors.add(authorService.findById(1L));
+//        authors.add(authorService.findById(2L));
+//        book.setAuthors(authors);
 
         bookDao.save(book);
     }

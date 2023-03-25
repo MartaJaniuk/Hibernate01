@@ -21,6 +21,10 @@ public class Author {
     private String firstName;
     private String lastName;
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
 //    @OneToMany(mappedBy = "publisher",fetch=FetchType.EAGER ) // że nie jest lazy, automatycznie wczytują sie książki
 //    private List<Book> books = new ArrayList<>();
 

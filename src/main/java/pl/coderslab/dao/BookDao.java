@@ -30,7 +30,7 @@ public class BookDao {
     }
 
     public List<Book> findAll(){
-        Query query = entityManager.createQuery("select b from Book b"); //select * from books
+        Query query = entityManager.createQuery("select distinct b from Book b"); //select * from books /left join fetch b.authors left join fetch b.publishers
         return query.getResultList();
     }
 
