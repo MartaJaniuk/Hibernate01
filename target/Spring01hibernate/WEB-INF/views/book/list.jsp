@@ -25,7 +25,7 @@
             <td>${book.publisher.name}</td>
             <td>
                 <c:forEach items="${book.authors}" var="author">
-                    ${author.fullName}
+                    ${author.firstName}
                 </c:forEach>
             </td>
             <td><a href="edit?id=${book.id}">Edit</a></td>

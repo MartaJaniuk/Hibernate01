@@ -3,9 +3,11 @@ package pl.coderslab.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.Author;
 import pl.coderslab.entity.Book;
 import pl.coderslab.entity.Publisher;
@@ -13,6 +15,7 @@ import pl.coderslab.service.AuthorService;
 import pl.coderslab.service.BookService;
 import pl.coderslab.service.PublisherService;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,18 +27,44 @@ public class BookFormController {
     private final PublisherService publisherService;
     private final AuthorService authorService;
 
-    @GetMapping(path="/bookform")
+    @GetMapping(path="/book/form")
     String showAddBookForm(Model model){
         model.addAttribute("book", new Book());
         return "book/add";
     }
 
-    @PostMapping(path="/bookform")
-    String processAddBook(Book book){
+    @PostMapping(path="/book/form")
+    String processAddBook(@Valid Book book, BindingResult errors){
+        if(errors.hasErrors()) {
+            return "book/add";
+        }
+
         bookService.save(book);
-      //  return "book/success";
+        //  return "book/success";
         return "redirect:/booklist";
     }
+
+
+    @GetMapping(path="/book/edit")
+    String showEditBookForm(@RequestParam long id, Model model){
+
+        Book book = bookService.findById(id);
+        model.addAttribute("book", book);
+        return "book/edit";
+    }
+
+
+    @PostMapping(path="/book/edit")
+    String processEditBookForm(@Valid Book book, BindingResult errors){
+        if(errors.hasErrors()) {
+            return "book/edit";
+        }
+
+        bookService.update(book);
+        return "redirect:/booklist";
+    }
+
+
 
     @GetMapping(path = "/booklist")
     String showBookList(Model model) {

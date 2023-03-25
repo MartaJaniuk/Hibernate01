@@ -28,11 +28,11 @@ public class Book {
     @Range(min=1, max=10)
     private int rating;
 
-  //  @Size(max=600)
+    @Size(max=600)
     private String description;
 
 
-    @ManyToOne
+    @ManyToOne (fetch = FetchType.LAZY)
     @NotNull
     private Publisher publisher;
 
@@ -44,6 +44,6 @@ public class Book {
     @NotEmpty
     private List<Author> authors = new ArrayList<>();
 
-//    @Min(1)
-//    private int pages;
+    @Min(1)
+    private int pages;
 }

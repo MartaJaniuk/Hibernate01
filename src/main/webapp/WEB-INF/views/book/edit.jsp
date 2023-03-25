@@ -2,7 +2,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <title>Add book</title>
+    <title>Edit book</title>
 
     <style>
         .error{
@@ -12,20 +12,20 @@
 </head>
 <body>
 
-<h3>Add book</h3>
+<h3>Edit book</h3>
 
 <form:form method="post" modelAttribute="book">
 
     <div>
-    Title: <form:input path="title"/><form:errors path="title" cssClass="error"/>
+        Title: <form:input path="title"/><form:errors path="title" cssClass="error"/>
     </div>
 
     <div>
-    Description: <form:input path="description"/><form:errors path="description" cssClass="error"/>
+        Description: <form:input path="description"/><form:errors path="description" cssClass="error"/>
     </div>
 
     <div>
-    Rating: <form:input path="rating" type="number" min="1" max="10" step="1" /><form:errors path="rating" cssClass="error"/>
+        Rating: <form:input path="rating" type="number" min="1" max="10" step="1" /><form:errors path="rating" cssClass="error"/>
     </div>
 
     <div>
@@ -37,8 +37,9 @@
     </div>
 
     <div>
-    Pages: <form:input path="pages" type="number" min="1" placeholder="Podaj liczbę stron" value="1"/><form:errors path="pages" cssClass="error"/>
+        Pages: <form:input path="pages" type="number" min="1" placeholder="Podaj liczbę stron" value="1"/><form:errors path="pages" cssClass="error"/>
     </div>
+    <form:hidden path="id"/>
 
     <input type="submit" value="Add book">
 </form:form>

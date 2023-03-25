@@ -26,11 +26,14 @@ public class BookDao {
     }
 
     public Book findById(Long id){
+
         return entityManager.find(Book.class, id);
+        // własne query, żeby nie używać Hibernate.initialize
+
     }
 
     public List<Book> findAll(){
-        Query query = entityManager.createQuery("select distinct b from Book b"); //select * from books /left join fetch b.authors left join fetch b.publishers
+        Query query = entityManager.createQuery("select distinct b from Book b left join fetch b.publisher left join fetch b.authors"); //select * from books /left join fetch b.authors left join fetch b.publishers
         return query.getResultList();
     }
 
