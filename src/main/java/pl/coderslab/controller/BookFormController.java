@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import pl.coderslab.entity.Author;
 import pl.coderslab.entity.Book;
+import pl.coderslab.entity.Category;
 import pl.coderslab.entity.Publisher;
 import pl.coderslab.service.AuthorService;
 import pl.coderslab.service.BookService;
+import pl.coderslab.service.CategoryService;
 import pl.coderslab.service.PublisherService;
 
 import javax.validation.Valid;
@@ -25,6 +27,7 @@ public class BookFormController {
 
     private final BookService bookService;
     private final PublisherService publisherService;
+    private final CategoryService categoryService;
     private final AuthorService authorService;
 
     @GetMapping(path="/book/form")
@@ -41,7 +44,7 @@ public class BookFormController {
 
         bookService.save(book);
         //  return "book/success";
-        return "redirect:/booklist";
+        return "redirect:/book/list";
     }
 
 
@@ -61,16 +64,49 @@ public class BookFormController {
         }
 
         bookService.update(book);
-        return "redirect:/booklist";
+        return "redirect:/book/list";
     }
 
 
 
-    @GetMapping(path = "/booklist")
+    @GetMapping(path = "/book/list")
     String showBookList(Model model) {
 
         List<Book> books = bookService.findAll();
         model.addAttribute("books", books);
+
+        return "book/list";
+    }
+
+    //http://localhost:8080/book/search?title=Java+techniki+kodowania
+    @GetMapping(path="/book/search")
+    String findByTitle(@RequestParam String title, Model model) {
+        List<Book> books = bookService.findByTitle(title);
+        model.addAttribute("books",books);
+        return "book/list";
+    }
+
+    //http://localhost:8080/book/search?id=2
+    //nie ma request param, bo bindowanie i automatycznie zrobi set id na obiekcie category
+    //dodanie params id sprawi, że url z końcówką search?id=coś trafi tu nie do ogólnego search powyżej
+    @GetMapping(path="/book/search", params = "id")
+    String findByCategory(Category category, Model model) {
+        List<Book> books = bookService.findByCategory(category);
+        model.addAttribute("books",books);
+
+        return "book/list";
+    }
+
+
+    //http://localhost:8080/book/search?categoryId=2
+    //jest request param, bo Category nie ma pola categoryId, więc musi być @RequestParam
+
+    //inne rozwiązanie mogłoby być
+    //@GetMapping(path="/book/search/categoryId")
+    @GetMapping(path="/book/search", params = "categoryId")
+    String findByCategoryId(@RequestParam Long categoryId, Model model) {
+        List<Book> books = bookService.findByCategoryId(categoryId);
+        model.addAttribute("books",books);
 
         return "book/list";
     }
@@ -80,8 +116,17 @@ public class BookFormController {
         return publisherService.findAll();
     }
 
+    @ModelAttribute("categories")
+    List<Category> categories(){
+        return categoryService.findAll();
+    }
+
     @ModelAttribute("authors")
     List<Author> authors(){
         return authorService.findAll();
     }
+
+
+
+
 }

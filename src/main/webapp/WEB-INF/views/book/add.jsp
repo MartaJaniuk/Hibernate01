@@ -40,6 +40,10 @@
     Pages: <form:input path="pages" type="number" min="1" placeholder="Podaj liczbę stron" value="1"/><form:errors path="pages" cssClass="error"/>
     </div>
 
+    <div>
+        Category: <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/><form:errors path="category" cssClass="error"/>
+    </div>
+
     <input type="submit" value="Add book">
 </form:form>
 

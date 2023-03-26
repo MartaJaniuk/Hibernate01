@@ -46,4 +46,9 @@ public class Book {
 
     @Min(1)
     private int pages;
+
+    @ManyToOne (fetch = FetchType.LAZY) // standardowo jest eager
+    @NotNull
+    private Category category;
+
 }

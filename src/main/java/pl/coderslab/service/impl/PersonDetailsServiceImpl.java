@@ -3,11 +3,13 @@ package pl.coderslab.service.impl;
 import org.springframework.stereotype.Service;
 import pl.coderslab.dao.PersonDao;
 import pl.coderslab.dao.PersonDetailsDao;
+import pl.coderslab.entity.Book;
 import pl.coderslab.entity.Person;
 import pl.coderslab.entity.PersonDetails;
 import pl.coderslab.service.PersonDetailsService;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @Transactional
@@ -39,4 +41,10 @@ public class PersonDetailsServiceImpl implements PersonDetailsService {
     public void deleteById(Long id) {
         personDetailsDao.deleteById(id);
     }
+
+
+//    @Override
+//    public List<Book> findByTitle(String title) {
+//        return null;
+//    }
 }
